@@ -1,0 +1,46 @@
+---
+## General
+redis_exporter_version: 0.10.9
+redis_exporter_release_system: linux-amd64
+
+# Set true to force the download and installation of the binary
+redis_exporter_force_reinstall: false
+
+## Service options
+
+# Owner
+redis_exporter_user: prometheus
+redis_exporter_group: prometheus
+
+# start on boot
+redis_exporter_service_enabled: True
+# current state: started, stopped
+redis_exporter_service_state: started
+
+# Files & Paths
+redis_exporter_log_path: /var/log/redis_exporter
+redis_exporter_log_file: "redis_exporter.log"
+redis_exporter_root_path: /opt/redis_exporter
+redis_exporter_bin_path: "{{ redis_exporter_root_path }}/bin"
+
+# Flags (https://github.com/oliver006/redis_exporter#flags)
+redis_exporter_port: 9121
+redis_exporter_debug: false
+redis_exporter_log_format: txt #(txt | json)
+redis_exporter_check_keys: ""
+redis_exporter_redis_addr: redis://localhost:6379
+redis_exporter_redis_password: ""
+redis_exporter_redis_alias: redis_{{ ansible_nodename }}
+redis_exporter_redis_namespace: redis
+redis_exporter_web_telemetry_path: metrics
+
+redis_exporter_options:
+  - "{{ redis_exporter_debug | ternary('debug','') }}"
+  - "log-format {{ redis_exporter_log_format }}"
+  - "{{ redis_exporter_check_keys | ternary('check-keys ' + redis_exporter_check_keys, '') }}"
+  - "redis.addr {{ redis_exporter_redis_addr }}"
+  - "{{ redis_exporter_redis_password | ternary('redis.password ' + redis_exporter_redis_password, '') }}"
+  - "redis.alias {{ redis_exporter_redis_alias }}"
+  - "namespace {{ redis_exporter_redis_namespace }}"
+  - "web.listen-address :{{ redis_exporter_port }}"
+  - "web.telemetry-path /{{ redis_exporter_web_telemetry_path }}"

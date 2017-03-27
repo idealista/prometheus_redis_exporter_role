@@ -1,0 +1,23 @@
+---
+- hosts: all
+  handlers:
+    - name: restart redis
+      service:
+        name: redis-server
+        state: restarted
+  pre_tasks:
+    - name: Install Redis
+      apt:
+        name: redis-server
+        state: latest
+        install_recommends: yes
+        update_cache: yes
+      tags:
+        skip_ansible_lint
+    - name: Copy redis config
+      copy:
+        src: redis.conf
+        dest: /etc/redis
+      notify: restart redis
+  roles:
+    - role: prometheus_redis_exporter-role

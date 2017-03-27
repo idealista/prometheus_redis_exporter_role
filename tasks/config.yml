@@ -1,0 +1,9 @@
+---
+
+- name: REDIS_EXPORTER | Copy logrotate config
+  template:
+    src: logrotate.j2
+    dest: /etc/logrotate.d/redis_exporter
+    mode: 0644
+    owner: root
+    group: root

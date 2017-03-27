@@ -1,0 +1,4 @@
+---
+# FLAGS
+redis_exporter_port: 9116
+redis_exporter_debug: true

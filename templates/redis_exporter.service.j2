@@ -1,0 +1,18 @@
+[Unit]
+Description=prometheus redis exporter
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+PrivateTmp=yes
+User={{ redis_exporter_user }}
+Group={{ redis_exporter_group }}
+RuntimeDirectory=redis_exporter
+ExecStart=/bin/sh -c "{{ redis_exporter_bin_path }}/redis_exporter {% for option in redis_exporter_options %}{% if option %}-{{ option }} {% endif %}{% endfor %}> {{ redis_exporter_log_path }}/{{ redis_exporter_log_file }} 2>&1"
+ExecStartPost=/bin/sh -c "echo $MAINPID > /run/redis_exporter/redis_exporter.pid"
+ExecReload=/bin/kill -HUP $MAINPID
+PIDFile=/run/redis_exporter/redis_exporter.pid
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=multi-user.target
