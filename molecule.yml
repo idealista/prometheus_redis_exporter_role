@@ -44,7 +44,7 @@ vagrant:
         cpus: 1
 
   instances:
-    - name: redisexporter
+    - name: redisexporter.vm
       ansible_groups:
         - group01
       interfaces:

@@ -40,6 +40,7 @@
     src: "/tmp/{{ redis_exporter_package }}"
     dest: "/tmp"
     remote_src: True
+  when: 'redis_exporter_force_reinstall or redis_exporter_check|failed or "Redis Metrics Exporter v{{ redis_exporter_version }}" not in redis_exporter_check.stderr'
 
 - name: REDIS_EXPORTER | Copy binary
   copy:
@@ -57,6 +58,7 @@
     src: "{{ redis_exporter_bin_path }}/redis_exporter"
     dest: "/usr/bin/redis_exporter"
     state: link
+  when: 'redis_exporter_force_reinstall or redis_exporter_check|failed or "Redis Metrics Exporter v{{ redis_exporter_version }}" not in redis_exporter_check.stderr'
 
 - name: REDIS_EXPORTER | Copy Daemon script
   template:
