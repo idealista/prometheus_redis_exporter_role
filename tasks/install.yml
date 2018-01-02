@@ -32,7 +32,7 @@
 - name: REDIS_EXPORTER | Download package
   get_url:
     url: "{{ redis_exporter_url }}"
-    dest: /tmp
+    dest: "/tmp/{{ redis_exporter_package }}"
   when: 'redis_exporter_force_reinstall or redis_exporter_check|failed or "Redis Metrics Exporter v{{ redis_exporter_version }}" not in redis_exporter_check.stderr'
 
 - name: REDIS_EXPORTER | Extract downloaded package
