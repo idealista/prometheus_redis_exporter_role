@@ -15,8 +15,9 @@ molecule:
     - .vagrant
     - .molecule
 
-  # directory to look for testinfra tests
-  testinfra_dir: tests
+  # directory to look for goss tests
+  goss_dir: tests/goss
+  goss_playbook: verifier.yml
 
   # directory containing group_vars to use with ansible
   group_vars: ../tests/group_vars
@@ -46,8 +47,26 @@ vagrant:
   instances:
     - name: redisexporter.vm
       ansible_groups:
-        - group01
+        - redisexporter
       interfaces:
         - network_name: private_network
           type: dhcp
           auto_config: true
+
+docker:
+  containers:
+    - name: redisexporter.cont
+      hostname: redisexporter
+      ansible_groups:
+        - redisexporter
+      image: idealista/java-debian-ansible
+      image_version: latest
+      privileged: True
+      cap_add:
+        - SYS_ADMIN
+      volume_mounts:
+        - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+      command: '/lib/systemd/systemd'
+
+verifier:
+  name: goss
