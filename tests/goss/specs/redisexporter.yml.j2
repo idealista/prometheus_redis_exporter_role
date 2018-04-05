@@ -1,0 +1,40 @@
+group:
+  {{ redis_exporter_group }}:
+    exists: true
+
+user:
+  {{ redis_exporter_user }}:
+    exists: true
+    groups:
+      - {{ redis_exporter_group }}
+
+file:
+  {{ redis_exporter_bin_path }}/redis_exporter:
+    owner: {{ redis_exporter_user }}
+    group: {{ redis_exporter_group }}
+    exists: true
+  /usr/bin/redis_exporter:
+    exists: true
+    filetype: symlink
+    linked-to: {{ redis_exporter_bin_path }}/redis_exporter
+
+command:
+  /usr/bin/redis_exporter -version:
+    exit-status: 0
+    stderr:
+      - "Redis Metrics Exporter v{{ redis_exporter_version }}"
+
+service:
+  redis_exporter:
+    enabled: true
+    running: true
+
+port:
+  tcp6:{{ redis_exporter_port }}:
+    listening: true
+
+http:
+  http://localhost:{{ redis_exporter_port }}/{{ redis_exporter_web_telemetry_path }}:
+    status: 200
+    body:
+      - "redis_memory_used_bytes"
