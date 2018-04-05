@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/prometheus_redis_exporter-role/tree/develop)
 
+- add default variable `redis_exporter_ip` to set listen ip of redis-exporter. Defaults to 0.0.0.0
+
 ## [1.0.2](https://github.com/idealista/prometheus_redis_exporter-role/tree/1.0.2) (2018-01-02)
 [Full Changelog](https://github.com/idealista/prometheus_redis_exporter-role/compare/1.0.1...1.0.2)
 

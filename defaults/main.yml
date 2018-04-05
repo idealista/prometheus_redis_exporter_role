@@ -25,6 +25,7 @@ redis_exporter_bin_path: "{{ redis_exporter_root_path }}/bin"
 
 # Flags (https://github.com/oliver006/redis_exporter#flags)
 redis_exporter_port: 9121
+redis_exporter_ip: 0.0.0.0
 redis_exporter_debug: false
 redis_exporter_log_format: txt #(txt | json)
 redis_exporter_check_keys: ""
@@ -42,5 +43,5 @@ redis_exporter_options:
   - "{{ redis_exporter_redis_password | ternary('redis.password ' + redis_exporter_redis_password, '') }}"
   - "redis.alias {{ redis_exporter_redis_alias }}"
   - "namespace {{ redis_exporter_redis_namespace }}"
-  - "web.listen-address :{{ redis_exporter_port }}"
+  - "web.listen-address {{ redis_exporter_ip }}:{{ redis_exporter_port }}"
   - "web.telemetry-path /{{ redis_exporter_web_telemetry_path }}"
