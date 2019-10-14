@@ -1,0 +1,14 @@
+port:
+# Check port at IPv6
+# https://github.com/aelsabbahy/goss/issues/177
+  tcp6:9121:
+    listening: true
+    ip:
+    - '::'
+service:
+  redis_exporter:
+    enabled: true
+    running: true
+process:
+  redis_exporter:
+    running: true
