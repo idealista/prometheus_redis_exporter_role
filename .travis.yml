@@ -1,17 +1,16 @@
 ---
+dist: xenial
 language: python
-python: "2.7.13"
-
+python: "3.7"
 sudo: required
 
 services:
   - docker
 install:
-  - pip install ansible==2.3.1.0
-  - pip install molecule==1.25.0
-  - pip install docker
+  - pip install pipenv
+  - pipenv sync
 script:
-  - molecule test --driver docker
+  - travis_wait 30 pipenv run molecule test
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
