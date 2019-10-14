@@ -32,25 +32,25 @@
 - name: REDIS_EXPORTER | Download package
   get_url:
     url: "{{ redis_exporter_url }}"
-    dest: "/tmp/{{ redis_exporter_package }}"
-  when: 'redis_exporter_force_reinstall or redis_exporter_check|failed or "Redis Metrics Exporter v{{ redis_exporter_version }}" not in redis_exporter_check.stderr'
+    dest: "{{ redis_exporter_package_path }}"
+  when: redis_exporter_force_reinstall or redis_exporter_check is failed or redis_exporter_version not in redis_exporter_check.stderr
 
 - name: REDIS_EXPORTER | Extract downloaded package
   unarchive:
-    src: "/tmp/{{ redis_exporter_package }}"
-    dest: "/tmp"
+    src: "{{ redis_exporter_package_path }}"
+    dest: "{{ redis_exporter_download_path }}"
     remote_src: True
-  when: 'redis_exporter_force_reinstall or redis_exporter_check|failed or "Redis Metrics Exporter v{{ redis_exporter_version }}" not in redis_exporter_check.stderr'
+  when: redis_exporter_force_reinstall or redis_exporter_check is failed or redis_exporter_version  not in redis_exporter_check.stderr
 
 - name: REDIS_EXPORTER | Copy binary
   copy:
-    src: "/tmp/redis_exporter"
+    src: "{{ redis_exporter_src_bin }}"
     dest: "{{ redis_exporter_bin_path }}/redis_exporter"
     owner: "{{ redis_exporter_user }}"
     group: "{{ redis_exporter_group }}"
     remote_src: True
     mode: 0755
-  when: 'redis_exporter_force_reinstall or redis_exporter_check|failed or "Redis Metrics Exporter v{{ redis_exporter_version }}" not in redis_exporter_check.stderr'
+  when: redis_exporter_force_reinstall or redis_exporter_check is failed or redis_exporter_version not in redis_exporter_check.stderr
   notify: restart redis_exporter
 
 - name: REDIS_EXPORTER | Link binary
@@ -58,7 +58,7 @@
     src: "{{ redis_exporter_bin_path }}/redis_exporter"
     dest: "/usr/bin/redis_exporter"
     state: link
-  when: 'redis_exporter_force_reinstall or redis_exporter_check|failed or "Redis Metrics Exporter v{{ redis_exporter_version }}" not in redis_exporter_check.stderr'
+  when: redis_exporter_force_reinstall or redis_exporter_check is failed or redis_exporter_version  not in redis_exporter_check.stderr
 
 - name: REDIS_EXPORTER | Copy Daemon script
   template:
