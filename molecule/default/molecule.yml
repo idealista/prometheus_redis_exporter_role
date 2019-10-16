@@ -15,7 +15,6 @@ platforms:
       - SYS_ADMIN
     volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
-      - '/sys/fs/fuse/connections:/sys/fs/fuse/connections:ro'
     tmpfs:
       - '/redis'
       - '/tmp'
