@@ -9,7 +9,9 @@ PrivateTmp=yes
 User={{ redis_exporter_user }}
 Group={{ redis_exporter_group }}
 RuntimeDirectory=redis_exporter
-ExecStart={{ redis_exporter_bin_path }}/redis_exporter {% for option in redis_exporter_options %}{% if option %}-{{ option }} {% endif %}{% endfor %}> {{ redis_exporter_log_path }}/{{ redis_exporter_log_file }} 2>&1
+ExecStart={{ redis_exporter_bin_path }}/redis_exporter {% for option in redis_exporter_options %}{% if option %}-{{ option }} {% endif %}{% endfor %}
+StandardOutput=append:{{ redis_exporter_log_path }}/{{ redis_exporter_log_file }}
+StandardOutput=append:{{ redis_exporter_log_path }}/{{ redis_exporter_log_file }}
 ExecReload=/bin/kill -HUP $MAINPID
 KillSignal=SIGTERM
 
