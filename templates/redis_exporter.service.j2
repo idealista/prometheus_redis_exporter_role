@@ -15,6 +15,7 @@ StandardOutput=append:{{ redis_exporter_log_path }}/{{ redis_exporter_log_file }
 StandardError=append:{{ redis_exporter_log_path }}/{{ redis_exporter_log_file }}
 ExecReload=/bin/kill -HUP $MAINPID
 KillSignal=SIGTERM
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
