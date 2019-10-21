@@ -28,8 +28,12 @@ redis_exporter_service_enabled: True
 redis_exporter_service_state: started
 
 # Files & Paths
-redis_exporter_log_path: /var/log/redis_exporter
-redis_exporter_log_file: "redis_exporter.log"
+# redis_exporter_log_path: /var/log/redis_exporter
+# redis_exporter_log_file: redis_exporter.log
+redis_exporter_log_output: journal
+# If you need output to a file, you can use file:{{ redis_exporter_log_path }}/{{ redis_exporter_log_file }}, append:..., rsyslog and other
+# options in Debian 10 (see https://www.freedesktop.org/software/systemd/man/systemd.exec.html)
+
 redis_exporter_root_path: /opt/redis_exporter
 redis_exporter_bin_path: "{{ redis_exporter_root_path }}/bin"
 

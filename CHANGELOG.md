@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 - *[#10](https://github.com/idealista/prometheus_redis_exporter_role/issues/10) Added support to 1.x Redis exporter* @frantsao
 - *Updated molecule and other requirements* @frantsao
 - *Renamed role* @frantsao
+- *Fix service systemd management and logging* @frantsao
 
 ## [1.1.0](https://github.com/idealista/prometheus_redis_exporter_role/tree/1.1.0) (2018-04-05)
 [Full Changelog](https://github.com/idealista/prometheus_redis_exporter_role/compare/1.0.2...1.1.0)
