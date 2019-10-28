@@ -32,7 +32,7 @@
 
     - name: Copy Goss tests to remote
       template:
-        src: "{{ item }}.j2"
+        src: "{{ item }}"
         dest: "{{ goss_test_directory }}/{{ item | basename }}"
       with_fileglob:
         - "{{ lookup('env', 'MOLECULE_VERIFIER_TEST_DIRECTORY') }}/test_*.yml"
