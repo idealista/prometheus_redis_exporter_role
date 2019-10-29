@@ -1,3 +1,4 @@
+{{ ansible_managed | comment }}
 {{ redis_exporter_log_path }}/{{ redis_exporter_log_file }} {
   daily
   sharedscripts
@@ -9,6 +10,6 @@
   delaycompress
   create 664 {{ redis_exporter_user }} {{ redis_exporter_group }}
   postrotate
-        [ ! -f /run/redis_exporter.pid ] || systemctl restart redis_exporter.service
+        systemctl restart redis_exporter.service
   endscript
 }
