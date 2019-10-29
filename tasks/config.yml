@@ -7,3 +7,4 @@
     mode: 0644
     owner: root
     group: root
+  when: redis_exporter_log_path is defined

@@ -19,21 +19,22 @@ This ansible role installs a Prometheus Redis Exporter in a debian environment.
 
 These instructions will get you a copy of the role for your ansible playbook. Once launched, it will install an [Prometheus Redis Exporter](https://github.com/oliver006/redis_exporter) server in a Debian system.
 
+*Note:* Beginning with the 2.0 version, the default behaviour is the service sending logs to systemd's journal instead to a log file. You can change it modifying the necessary ansible vars (see defaults/main.yml)
 ### Prerequisities
 
-Ansible 2.2.1.0 version installed.
+Ansible 2.8.x.x version installed.
 Inventory destination should be a Debian environment.
 
-For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Vagrant](https://www.vagrantup.com/) as driver (with [landrush](https://github.com/vagrant-landrush/landrush) plugin) and [VirtualBox](https://www.virtualbox.org/) as provider.
+For testing purposes, [Molecule](https://molecule.readthedocs.io/) with Docker as driver and [Goss](http://goss.rocks) as verifier.
 
 ### Installing
 
 Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
-- src: http://github.com/idealista/prometheus_redis_exporter-role.git
+- src: http://github.com/idealista/prometheus_redis_exporter_role.git
   scm: git
-  version: 1.0.0
+  version: 1.2.0
   name: prometheus_redis_exporter
 ```
 
@@ -58,17 +59,29 @@ Look to the [defaults](defaults/main.yml) properties file to see the possible co
 
 ## Testing
 
+### Install dependencies
+
+```sh
+$ pipenv sync
 ```
-molecule test
+
+For more information read the [pipenv docs](https://docs.pipenv.org/).
+
+### Testing single mode
+
+```sh
+$ pipenv run molecule test 
 ```
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.2.1.0-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.8.0.0-green.svg)
+![Molecule](https://img.shields.io/badge/molecule-2.22.0-green.svg)
+![Goss](https://img.shields.io/badge/goss-0.3.7-green.svg)
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/idealista/prometheus_redis_exporter-role/tags).
+For the versions available, see the [tags on this repository](https://github.com/idealista/prometheus_redis_exporter_role/tags).
 
 Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGELOG.md) file.
 
@@ -76,11 +89,11 @@ Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGE
 
 * **Idealista** - *Work with* - [idealista](https://github.com/idealista)
 
-See also the list of [contributors](https://github.com/idealista/prometheus_redis_exporter-role/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/idealista/prometheus_redis_exporter_role/contributors) who participated in this project.
 
 ## License
 
-![Apache 2.0 Licence](https://img.shields.io/hexpm/l/plug.svg)
+![Apache 2.0 License](https://img.shields.io/hexpm/l/plug.svg)
 
 This project is licensed under the [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) license - see the [LICENSE](LICENSE) file for details.
 

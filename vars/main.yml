@@ -1,6 +1,0 @@
----
-
-redis_exporter_release_name: "redis_exporter-v{{ redis_exporter_version }}.{{ redis_exporter_release_system }}"
-redis_exporter_package: "{{ redis_exporter_release_name}}.tar.gz"
-
-redis_exporter_url: "https://github.com/oliver006/redis_exporter/releases/download/v{{ redis_exporter_version }}/{{ redis_exporter_package }}"
