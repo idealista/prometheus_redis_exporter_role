@@ -34,7 +34,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 ```
 - src: http://github.com/idealista/prometheus_redis_exporter_role.git
   scm: git
-  version: 1.2.0
+  version: 2.0.0
   name: prometheus_redis_exporter
 ```
 

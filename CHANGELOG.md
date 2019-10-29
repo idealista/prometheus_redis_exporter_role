@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/prometheus_redis_exporter_role/tree/develop)
+
+
+## [2.0.0](https://github.com/idealista/prometheus_redis_exporter_role/tree/2.0.0) (2019-10-29)
+[Full Changelog](https://github.com/idealista/prometheus_redis_exporter_role/compare/1.1.0...2.0.0)
 ### Added
 - *[#3](https://github.com/idealista/prometheus_redis_exporter_role/issues/3) Removed deprecation warnings* @frantsao
 - *[#10](https://github.com/idealista/prometheus_redis_exporter_role/issues/10) Added support to 1.x Redis exporter* @frantsao
