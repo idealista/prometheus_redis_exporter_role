@@ -5,7 +5,7 @@ Requires=network-online.target
 After=network-online.target
 
 [Service]
-PrivateTmp=yes
+PrivateTmp={{ redis_exporter_private_tmp }}
 User={{ redis_exporter_user }}
 Group={{ redis_exporter_group }}
 RuntimeDirectory=redis_exporter
