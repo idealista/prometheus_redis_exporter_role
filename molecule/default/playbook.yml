@@ -1,8 +1,6 @@
 ---
 - name: Converge
   hosts: all
-  vars:
-    redis_exporter_private_tmp: false
   roles:
     - role: redis_role
     - role: prometheus_redis_exporter_role
