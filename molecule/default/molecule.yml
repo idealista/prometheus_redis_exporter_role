@@ -18,6 +18,8 @@ platforms:
     tmpfs:
       - '/redis'
       - '/tmp'
+      - '/run'
+      - '/run/lock'
     command: '/lib/systemd/systemd'
     stop_signal: 'RTMIN+3'
 provisioner:

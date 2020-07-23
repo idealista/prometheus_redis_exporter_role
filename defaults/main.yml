@@ -17,6 +17,7 @@ redis_exporter_src_bin: "{{ redis_exporter_download_path }}/{{ redis_exporter_re
 redis_exporter_force_reinstall: false
 
 ## Service options
+redis_exporter_private_tmp: true
 
 # Owner
 redis_exporter_user: prometheus
