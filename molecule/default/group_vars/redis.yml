@@ -1,5 +1,6 @@
 ---
 
+redis_exporter_private_tmp: false
 redis_mode: single
 
 # you can include here redis.conf's vars

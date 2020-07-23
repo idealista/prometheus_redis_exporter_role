@@ -40,3 +40,12 @@ file:
     exists: true
     filetype: file
 {% endif %}
+command:
+  private_tmp:
+    # required attributes
+    exit-status: 0
+    # defaults to hash key
+    exec: "systemctl cat redis_exporter.service"
+    # optional attributes
+    stdout:
+    - PrivateTmp={{ redis_exporter_private_tmp }}
