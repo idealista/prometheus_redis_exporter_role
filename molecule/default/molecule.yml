@@ -28,3 +28,4 @@ provisioner:
 verifier:
   name: ansible
   directory: ./tests
+  
