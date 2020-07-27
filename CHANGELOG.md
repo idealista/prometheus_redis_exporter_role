@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 ## [2.1.0](https://github.com/idealista/prometheus_redis_exporter_role/tree/2.1.0) (2020-07-23)
 [Full Changelog](https://github.com/idealista/prometheus_redis_exporter_role/compare/2.0.0...2.1.0)
 ### Added
+- *[#18](https://github.com/idealista/prometheus_redis_exporter_role/issues/18) Upgrade molecule and goss versions* @pablogcaldito
 - *Update ansible from 2.8.6 to 2.9.9* @pablogcaldito
 - *[#15](https://github.com/idealista/prometheus_redis_exporter_role/issues/15) Parametrize PrivateTmp* @pablogcaldito
 
