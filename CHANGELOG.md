@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/prometheus_redis_exporter_role/tree/develop)
+- *[#18](https://github.com/idealista/prometheus_redis_exporter_role/issues/18) Upgrade molecule and goss versions* @pablogcaldito
 
 ## [2.1.0](https://github.com/idealista/prometheus_redis_exporter_role/tree/2.1.0) (2020-07-23)
 [Full Changelog](https://github.com/idealista/prometheus_redis_exporter_role/compare/2.0.0...2.1.0)

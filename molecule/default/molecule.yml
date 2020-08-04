@@ -3,8 +3,9 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
+lint: |
+  yamllint .
+  ansible-lint .
 platforms:
   - name: redisexporter
     groups:
@@ -24,9 +25,6 @@ platforms:
     stop_signal: 'RTMIN+3'
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
 verifier:
-  name: goss
-  lint:
-    name: yamllint
+  name: ansible
+  directory: ./tests

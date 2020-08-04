@@ -1,21 +1,20 @@
 ---
-dist: xenial
+dist: bionic
 language: python
 python: "3.7"
-sudo: required
-
+os: linux
 services:
   - docker
 install:
   - pip install pipenv
   - pipenv sync
 env:
-  matrix:
+  jobs:
     - MOLECULE_DISTRO=debian:buster-slim
     - MOLECULE_DISTRO=debian:stretch-slim
     - MOLECULE_DISTRO=debian:jessie-slim
 script:
-  - travis_wait 30 pipenv run molecule test
+  - pipenv run molecule test
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
