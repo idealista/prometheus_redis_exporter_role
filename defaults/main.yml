@@ -48,6 +48,7 @@ redis_exporter_redis_addr: redis://localhost:6379
 redis_exporter_redis_password: ""
 redis_exporter_redis_alias: redis_{{ ansible_nodename }}
 redis_exporter_redis_namespace: redis
+redis_exporter_set_client_name: true
 redis_exporter_web_telemetry_path: metrics
 
 redis_exporter_options:
@@ -59,5 +60,6 @@ redis_exporter_options:
   - "namespace {{ redis_exporter_redis_namespace }}"
   - "web.listen-address {{ redis_exporter_ip }}:{{ redis_exporter_port }}"
   - "web.telemetry-path /{{ redis_exporter_web_telemetry_path }}"
+  - "set-client-name {{ redis_exporter_set_client_name | ternary('true','false') }}"
 #  redis.alias only for 0.x version https://github.com/oliver006/redis_exporter/pull/256
 #  - "redis.alias {{ redis_exporter_redis_alias }}"
