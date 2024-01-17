@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
+## Added
+- *[PLATFORM-3582]- Add ".gitattributes" file for linguist detection.* @ygomezsaiz
+
 ## [Unreleased](https://github.com/idealista/prometheus_redis_exporter_role/tree/develop)
 
 ## [2.1.0](https://github.com/idealista/prometheus_redis_exporter_role/tree/2.1.0) (2020-07-23)
