@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
+## Added
+- *[#29](https://github.com/idealista/prometheus_redis_exporter_role/pull/29) (2024-01-17)- Add ".gitattributes" file for linguist detection.* @ygomezsaiz
+
 ## [Unreleased](https://github.com/idealista/prometheus_redis_exporter_role/tree/develop)
 - *[#18](https://github.com/idealista/prometheus_redis_exporter_role/issues/18) Upgrade molecule and goss versions* @pablogcaldito
 
