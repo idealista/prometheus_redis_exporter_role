@@ -1,7 +1,7 @@
 ---
 
 - name: REDIS_EXPORTER | Copy logrotate config
-  template:
+  ansible.builtin.template:
     src: logrotate.j2
     dest: /etc/logrotate.d/redis_exporter
     mode: 0644
