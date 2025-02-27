@@ -1,8 +1,9 @@
 ---
-dist: bionic
+dist: focal
 language: python
-python: "3.7"
-os: linux
+python: "3.9"
+sudo: required
+
 services:
   - docker
 install:
